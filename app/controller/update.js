@@ -36,8 +36,9 @@ class UpdataController extends BaseController {
       this.error(err);
     }
     let img = await ctx.model.Imglist.create({
+          filePath: "http://192.168.8.119:8000/" + path.join(target.slice(4)),
           url: "http://192.168.8.119:8000/" + path.join(target.slice(4)),
-          name: filename,
+          fileName: filename,
           title: '图片'
         });
     this.success(img);
@@ -76,8 +77,8 @@ class UpdataController extends BaseController {
     }
 
     let video = await ctx.model.Videolist.create({
-        url: "http://192.168.8.119:8000/" + path.join(target.slice(4)),
-        name: filename,
+        filePath: "http://192.168.8.119:8000/" + path.join(target.slice(4)),
+        fileName: filename,
         title: '视频'
     });
     this.success(video);
